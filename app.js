@@ -5,42 +5,35 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var mongoose = require('mongoose');
-var app = express();
 
 mongoose.connect("mongodb://supermikol:sn00pd0gg@ds023245.mlab.com:23245/comments")
-var Schema = mongoose.Schema;
 
-var commentSchema = new Schema({
-  name: String,
-  comment: String,
-  creation: { type: Date, default: Date.now}
-})
+var routes = require('./routes/index');
+var users = require('./routes/users');
+var messages = require('./routes/messages')
 
-var Comment = mongoose.model('Comment', commentSchema);
+var app = express();
 
-//first comment
-var newComment = Comment({
-  name: "Mike",
-  comment: "hey this is a comment!"
-})
-newComment.save(function(err){
-  if (err) throw err;
-  console.log('saved!');
-})
+// //first comment
+// var newComment = Comment({
+//   name: "Mike",
+//   comment: "hey this is a comment!"
+// })
+// newComment.save(function(err){
+//   if (err) throw err;
+//   console.log('saved!');
+// })
 
-//second comment
-var newComment2 = new Comment;
-newComment2.name = "John";
-newComment2.comment = "Whoop! This is a second comment!";
+// //second comment
+// var newComment2 = new Comment;
+// newComment2.name = "John";
+// newComment2.comment = "Whoop! This is a second comment!";
 
-newComment2.save(function(err){
-  if (err) throw err;
-  console.log('saved!');
-});
+// newComment2.save(function(err){
+//   if (err) throw err;
+//   console.log('saved!');
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/messages', messages);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

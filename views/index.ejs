@@ -7,10 +7,15 @@
   </head>
   <body ng-controller="MainController as vm">
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <input type="text" ng-model="vm.message">
-    <p> {{vm.message}}</p>
-    <div id="wall"></div>
+    <h2>Welcome to the <%=title %>!</h2>
+    <p>Leave your mark!</p>
+    <input type="text" ng-model="name">
+    <input type="text" ng-model="message">
+    <input type="button" ng-click="submitMessage()" value="Vandalize!">
+    <div id="wall">
+    <p> {{message}}</p>
+
+    </div>
   </body>
   <script src="/javascripts/app.js"></script>
 </html>
