@@ -21,13 +21,20 @@ router.post('/', function(req, res, next) {
       throw err;
     }
     console.log('saved!');
-
     Message.find({}, function(err, msgs){
       res.json(msgs);
     });
-
   });
-
 });
+
+router.delete('/:id', function(req, res, next) {
+  Message.remove({_id: req.params.id}, function(err, data){
+    if (err) throw err;
+    Message.find({}, function(error, msgs){
+      if (error) throw error;
+      res.json(msgs);
+    })
+  })
+})
 
 module.exports = router;

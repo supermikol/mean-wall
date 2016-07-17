@@ -8,15 +8,16 @@ function ctrlFunc($scope, $http){
   $scope.name = "Stranger Danger";
   $scope.message = "hi";
 
-  $http.get('/messages')
-    .success(function(data){
-    $scope.messages = data;
-    console.log(data);
-  })
-    .error(function(err){
-    if (err) throw err;
-    console.log('Error!')
-  });
+  setInterval(function(){
+    $http.get('/messages')
+      .success(function(data){
+      $scope.messages = data;
+    })
+      .error(function(err){
+      if (err) throw err;
+      console.log('Error!')
+    });
+  }, 1000);
 
   $scope.submitMessage = function(){
     $http.post('/messages', JSON.stringify({name: $scope.name, message: $scope.message}))
@@ -27,6 +28,17 @@ function ctrlFunc($scope, $http){
       })
       .error(function(err){
           if (err) throw err;
+      });
+  }
+
+  $scope.deleteMessage = function(msgID){
+    $http.delete('/messages/'+ msgID)
+      .success(
+        function(data){
+          $scope.messages = data;
+        })
+      .error(function(err){
+        if (err) throw err;
       });
   }
 }
