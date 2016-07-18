@@ -6,21 +6,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   </head>
   <body ng-controller="MainController as vm">
-    <h1><%= title %></h1>
     <h2>Welcome to the <%=title %>!</h2>
-    <p>Leave your mark!</p>
     <input type="text" ng-model="name">
     <input type="text" ng-model="message">
     <input type="button" ng-click="submitMessage()" value="Vandalize!">
-    <p>(Click on a message to delete!)</p>
-    <div id="wall">
-    <ul>
-      <li>{{name}} says: {{message}}</li>
-      <li ng-repeat="msg in messages | orderBy: '-'" ng-click="deleteMessage(msg._id)">
-        {{msg.name}} says: {{msg.message}}
-      </li>
-    </ul>
+    <p id="msg_display">
+      {{name}} says: {{message}}</p>
+    <p>
+    (Click on a message to see what happens!)</p>
 
+    <div id="wall">
+      <ul>
+        <li ng-repeat="msg in messages | orderBy: '-'" ng-click="deleteMessage(msg._id)">
+          {{msg.name}} says: {{msg.message}}
+        </li>
+      </ul>
     </div>
   </body>
   <script src="/javascripts/app.js"></script>

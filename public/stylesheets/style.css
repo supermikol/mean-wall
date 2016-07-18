@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+#msg_display {
+  font-weight: bold;
+}
+
+.message_wall tr{
+  border: 0.5px solid black;
+}
