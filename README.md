@@ -9,4 +9,4 @@
 - Hosted on AWS EC2 server
 
 ###Deployment
-- mean-wall.supermikol.com
+- [mean-wall.supermikol.com](http://mean-wall.supermikol.com)
