@@ -21,7 +21,7 @@
 
     <div id="wall">
       <ul>
-        <li ng-repeat="msg in messages | orderBy: '-'" ng-click="deleteMessage(msg._id)">
+        <li ng-repeat="msg in messages" ng-click="deleteMessage(msg._id)">
           {{msg.name}} says: {{msg.message}}
         </li>
       </ul>
