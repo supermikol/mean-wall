@@ -6,5 +6,7 @@
 - Node/Express on the backend to serve the RESTful API endpoints for grabbing and posting data
 - MongoDB for storing key:value documents per message, hosted using MongoLab
 - Angular JS for a responsive experience without page-reloads
+- Hosted on AWS EC2 server
 
-###Deployment: mean-wall.supermikol.com
+###Deployment
+- mean-wall.supermikol.com
