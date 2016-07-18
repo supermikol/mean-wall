@@ -7,6 +7,10 @@
   </head>
   <body ng-controller="MainController as vm">
     <h2>Welcome to the <%=title %>!</h2>
+    <h4>
+      This is a single page app built with the MEAN stack and hosted on AWS EC2.<br>
+      You can find the <a href="https://github.com/supermikol/mean-wall">repo here</a>.
+    </h4>
     <input type="text" ng-model="name">
     <input type="text" ng-model="message">
     <input type="button" ng-click="submitMessage()" value="Vandalize!">
