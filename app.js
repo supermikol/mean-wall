@@ -10,7 +10,6 @@ var mongoose = require('mongoose');
 mongoose.connect("mongodb://supermikol:sn00pd0gg@ds023245.mlab.com:23245/comments")
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var messages = require('./routes/messages')
 
 var app = express();
@@ -48,7 +47,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/messages', messages);
 
 // catch 404 and forward to error handler
